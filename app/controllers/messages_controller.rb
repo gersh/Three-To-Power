@@ -17,6 +17,7 @@ class MessagesController < ApplicationController
           mp.save()
         end
     end
+    flash[:message]="Message sent to leader"
     redirect_to '/messages'
   end
   def follower()
@@ -29,6 +30,7 @@ class MessagesController < ApplicationController
         mp.save()
       }
     end
+    flash[:message]="Message sent to followers"
     redirect_to '/messages'
   end
 end
