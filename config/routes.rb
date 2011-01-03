@@ -4,6 +4,7 @@ Threetopower::Application.routes.draw do
   match '/auth/:provider/callback' => 'authentications#create'
   resources :persons
   match '/persons/follow/:uid' => 'persons#follow'
+  match '/persons' => 'persons#index'
   #match '/messages' => 'messages#index'
   resources :messages
   match '/messages/follower/:id' => 'messages#follower'
@@ -58,7 +59,7 @@ Threetopower::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => "persons#index"
+  root :to => "home#index"
 
   # See how all your routes lay out with "rake routes"
 
