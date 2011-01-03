@@ -1,0 +1,9 @@
+You are currently following: <% if(current_user.follow_name) %> 
+    <%= current_user.follow_name %> <a href="/persons/unfollow">unfollow</a> <% else %>No one <% end %><br/>
+You are followed by: <%= @followers.collect {|f|f.name}.join(', ') %>
+<br/><br/>
+
+<% @nfriends.each do |f| %>
+<%= f['name'] %>(<%= f['count'] %> followers) <% if(f['count'] < 2) %>
+ <a href="persons/follow/<%= f['id'] %>">follow</a> <% end %><br/>
+<% end %>

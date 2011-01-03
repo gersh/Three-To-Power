@@ -1,0 +1,23 @@
+Create message
+<%= form_tag '/messages' do %>
+<%= text_field_tag 'msg' %>
+<input type="submit" value="Send"/>
+<% end %>
+
+<div style="float:left;width:30%;background-color:white;">
+Messages sent to you:<br/>
+<% @other.each {|e| %>
+<div class="msg">
+<%=e.created_at %>:<%= e.msg %><br/> <a href="/messages/leader/<%=e.id %>">Send to followers</a> | <a href="/messages/follower/<%= e.id %>">Send to leader</a><br/>
+</div>
+<% } %>
+</div>
+<div style="float:left;width:30%;background-color:white;">
+Your messages:<br/>
+<% @my.each {|e| %>
+<div class="msg">
+<%=e.created_at %>:<%= e.text %><br/> <a href="/messages/leader/<%=e.id %>">Send to followers</a> | <a href="/messages/follower/<%= e.id %>">Send to leader</a><br/>
+</div>
+<% } %>
+
+</div>
