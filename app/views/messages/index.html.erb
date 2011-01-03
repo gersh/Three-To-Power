@@ -8,7 +8,7 @@ Create message
 Messages sent to you:<br/>
 <% @other.each {|e| %>
 <div class="msg">
-<%=e.created_at %>:<%= e.msg %><br/> <a href="/messages/leader/<%=e.id %>">Send to followers</a> | <a href="/messages/follower/<%= e.id %>">Send to leader</a><br/>
+<%=e.created_at %>:<%= e.msg %><br/> <a href="/messages/follower/<%=e.id %>">Send to followers</a> | <a href="/messages/leader/<%= e.id %>">Send to leader</a><br/>
 </div>
 <% } %>
 </div>
@@ -16,7 +16,7 @@ Messages sent to you:<br/>
 Your messages:<br/>
 <% @my.each {|e| %>
 <div class="msg">
-<%=e.created_at %>:<%= e.text %><br/> <a href="/messages/leader/<%=e.id %>">Send to followers</a> | <a href="/messages/follower/<%= e.id %>">Send to leader</a><br/>
+<%=e.created_at %>:<%= e.text %><br/> <a href="/messages/follower/<%=e.id %>">Send to followers</a> | <a href="/messages/leader/<%= e.id %>">Send to leader</a><br/>
 </div>
 <% } %>
 
