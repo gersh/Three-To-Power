@@ -13,7 +13,7 @@ class MessagesController < ApplicationController
     message=Message.find(id)
     if message.user_id==current_user.id || message.message_permissions.where(:uid => current_user.authentications.first.uid)
         if current_user.follow_uid
-          mp=MessagePermission.new(:uid=>current_user.follow_uid, :message_id => current_user.follow_uid)
+          mp=MessagePermission.new(:uid=>current_user.follow_uid, :message_id => id)
           mp.save()
         end
     end
