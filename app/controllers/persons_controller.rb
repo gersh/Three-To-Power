@@ -19,11 +19,18 @@ class PersonsController < ApplicationController
   def follow()
     graph = Koala::Facebook::GraphAPI.new(current_user.authentications.first.token)
     uid=params[:uid]
-    obj=graph.get_object(uid)
+    @obj=graph.get_object(uid)
     current_user.follow_uid=uid
-    current_user.follow_name=obj['name']
+    current_user.follow_name=@obj['name']
     current_user.save()
-    flash[:message]="You are now following #{obj['name']}"
+    #flash[:message]="You are now following #{obj['name']}"
+    #redirect_to :action => :index
+  end
+  def follow_post()
+    graph = Koala::Facebook::GraphAPI.new(current_user.authentications.first.token)
+    uid=params[:uid]
+    graph.put_object(uid,"feed",:message => params[:post])
+    flash[:message]="Posted to your leader's wall"
     redirect_to :action => :index
   end
 end

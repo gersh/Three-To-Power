@@ -9,7 +9,7 @@ Threetopower::Application.routes.draw do
   resources :messages
   match '/messages/follower/:id' => 'messages#follower'
   match '/messages/leader/:id' => 'messages#leader'
-
+  match '/persons/follow_post' => 'persons#follow_post'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

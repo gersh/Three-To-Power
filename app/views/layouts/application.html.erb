@@ -9,7 +9,9 @@
   </head>
   <body>
     <div id="header">
-      <a href="/">Home</a>|<a href="/persons">Persons</a> | <a href="/messages">Messages</a>
+      <a href="/">Home</a><% if current_user %>|<a
+      href="/persons">Persons</a> | <a href="/messages">Messages</a><%
+      end %>
     </div>
     <div id="container">
       <% flash.each do |name, msg| %>

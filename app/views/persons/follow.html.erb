@@ -1,0 +1,7 @@
+You are now following <%= @obj['name'] %>. You can post to <%= @obj['name'] %>'s wall.
+<%= form_tag '/persons/follow_post' do %>
+<input type="hidden" name="uid" value="<%= @obj['uid'] %>"/>
+<textarea style="width:300px;" name="post">I am now following you on http://www.threetopower.com</textarea><br/>
+<input type="submit" value="post"/>
+<% end %>
+<a href="/persons">Skip</a>
